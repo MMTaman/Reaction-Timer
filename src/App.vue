@@ -57,22 +57,18 @@ export default {
                   }, 10);
             },
             stopGame() {
-                  clearInterval(this.waitingInterval);
-                  clearInterval(this.startingTimeInterval);
-                  clearTimeout(this.startingTimeout);
-                  (this.isPlaying = false), (this.playClicked = this.isPlaying);
-                  (this.howto = !this.isPlaying), (this.delay = 0);
-                  this.delaychild = this.delay;
-                  this.showTime = true;
-                  this.showScore = false;
-                  this.jumped = true;
-                  console.log({
-                        playing: this.isPlaying,
-                        playclickedinchild: this.isPlaying,
-                        delaysincestart: this.delay,
-                        waiting: this.waitingTimeChild,
-                  });
-                  console.log(this.waitingTimeChild);
+                  if (this.isPlaying) {
+                        clearInterval(this.waitingInterval);
+                        clearInterval(this.startingTimeInterval);
+                        clearTimeout(this.startingTimeout);
+                        (this.isPlaying = false),
+                              (this.playClicked = this.isPlaying);
+                        (this.howto = !this.isPlaying), (this.delay = 0);
+                        this.delaychild = this.delay;
+                        this.showTime = true;
+                        this.showScore = false;
+                        this.jumped = true;
+                  }
             },
             startGame() {
                   this.beforeStart();
